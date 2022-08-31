@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>QR Code Générateur</title>
+
+
+
+</head>
+
+
+
+<body>
+
+    <div class="container py-5">
+
+        <div class="row">
+
+            <div class="col-md-8 d-flex flex-column">
+
+                <div class="generator p-5 h-100">
+
+                    <div class="row justify-content-evenly mb-5">
+
+                        <div class="col-2 p-2 options active" form="url_form">
+
+                            <i class="fa fa-link"></i> <span class="pl-2">URL</span>
+
+                        </div>
+
+                        <div class="col-2 p-2 options" form="vcard_form">
+
+                            <i class="fa fa-address-card-o"></i> <span class="pl-2">VCard</span>
+
+                        </div>
+
+                        <div class="col-2 p-2 options" form="location_form">
+
+                            <i class="fa fa-map-marker"></i> <span class="pl-2">Géolocalisation</span>
+
+                        </div>
+
+                        <div class="col-2 p-2 options" form="event_form">
+
+                            <i class="fa fa-calendar"></i> <span class="pl-2">Événement</span>
+
+                        </div>
+
+                        <div class="col-2 p-2 options" form="wifi_form">
+
+                            <i class="fa fa-wifi"></i> <span class="pl-2">Wifi</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="forms">
+
+                        <form action="" method="post" class="form-box needs-validation active" novalidate id="url_form">
+
+                            <input type="url" placeholder="Entrez une URL" class="inp_big no_border form-control px-0" required id="u_url">
+
+                            <div class="form-group my-3">
+
+                                <label for="u_range" class="form-label">Taille (100-1000 px)</label>
+
+                                <input type="range" class="form-range" id="u_range" min="100" max="1000" value="200">
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4">
+
+                                    <label for="">Format</label>
+
+                                </div>
+
+                                <div class="col-sm-8">
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input u_format" type="radio" name="u_rad" id="u_rad1" checked value="png">
+
+                                        <label class="form-check-label" for="u_rad1">PNG</label>
+
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input u_format" type="radio" name="u_rad" id="u_rad2" value="svg">
+
+                                        <label class="form-check-label" for="u_rad2">SVG</label>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4">
+
+                                    <label>Couleur:</label>
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                    <input type="color" class="form-control" required id="u_color">
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4">
+
+                                    <label for="">ECC</label>
+
+                                </div>
+
+                                <div class="col-sm-8">
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input u_ecc" type="radio" name="u_ecc" id="u_ecc1" checked value="L">
+
+                                        <label class="form-check-label" for="u_ecc1">Low</label>
+
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input u_ecc" type="radio" name="u_ecc" id="u_ecc2" value="M">
+
+                                        <label class="form-check-label" for="u_ecc2">Medium</label>
+
+                                    </div>
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input u_ecc" type="radio" name="u_ecc" id="u_ecc3" value="H">
+
+                                        <label class="form-check-label" for="u_ecc3">High</label>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group pt-4">
+
+                                <button class="btn btn-submit"><i class="fa fa-refresh pe-2"></i>Générer</button>
+
+                            </div>
+
+
+
+                        </form>
+
+                        <form action="" method="post" class="mt-3 form-box needs-validation" novalidate id="vcard_form">
+
+                            <div class="form-group row mx-0">
+
+                                <h3 class="text-dark mb-3">VCard</h3>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4">
+
+                                    <label>Nom:</label>
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                    <input type="text" class="form-control" id="fname" placeholder="Nom">
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                    <input type="text" class="form-control" id="lname" placeholder="Prénom">
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4 my-2">
+
+                                    <label>Contact:</label>
+
+                                </div>
+
+                                <div class="col-sm-8 my-2">
+
+                                    <div><input type="text" class="form-control mb-2 phone-plus" id="mobile" placeholder="Téléphone Mobile"></div>
+
+
+
+                                    <div class="mt-2 d-flex justify-content-between">
+
+                                        <button class="btn btn-primary" type="button" id="p_add_btn">+ Ajouter </button>
+
+                                        <button class="btn btn-danger" type="button" id="p_rem_btn">+ Supprimer</button>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                    <input type="text" class="form-control" id="phone" placeholder="Téléphone Fixe">
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                    <input type="text" class="form-control" id="fax" placeholder="Fax">
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4 my-2">
+
+                                    <label>Email:</label>
+
+                                </div>
+
+                                <div class="col-sm-8 my-2">
+
+                                    <input type="email" class="form-control" id="email1" placeholder="Email Professionel">
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                </div>
+
+                                <div class="col-sm-8 my-2">
+
+                                    <div>
+
+                                        <input type="email" class="form-control email-plus mb-2" id="email" placeholder="Email Personnel ">
+
+                                    </div>
+
+                                    <div class="mt-2 d-flex justify-content-between">
+
+                                        <button class="btn btn-primary" type="button" id="e_add_btn">+ Ajouter</button>
+
+                                        <button class="btn btn-danger" type="button" id="e_rem_btn">+ Supprimer</button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4 my-2">
+
+                                    <label>Société:</label>
+
+                                </div>
+
+                                <div class="col-sm-8 my-2">
+
+                                    <input type="text" class="form-control" id="org" placeholder="">
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-12 my-3">
+
+                                    <label>Addresse Professionel</label>
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                    <label>Rue:</label>
+
+                                </div>
+
+                                <div class="col-sm-8 my-2">
+
+                                    <input type="text" class="form-control" id="street" placeholder="">
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4 my-2">
+
+                                    <label>Ville:</label>
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                    <input type="text" class="form-control" id="city" placeholder="">
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                    <input type="text" class="form-control" id="zip" placeholder="NPA">
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4 my-2">
+
+                                    <label>Etat:</label>
+
+                                </div>
+
+                                <div class="col-sm-8 my-2">
+
+                                    <input type="text" class="form-control" id="state">
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4 my-2">
+
+                                    <label>Pays:</label>
+
+                                </div>
+
+                                <div class="col-sm-8 my-2">
+
+                                    <input type="text" class="form-control" id="country" placeholder="">
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-12 my-3">
+
+                                    <label>Addresse Personnelle</label>
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                    <label>Rue:</label>
+
+                                </div>
+
+                                <div class="col-sm-8 my-2">
+
+                                    <input type="text" class="form-control" id="street1" placeholder="">
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4 my-2">
+
+                                    <label>Ville:</label>
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                    <input type="text" class="form-control" id="city1" placeholder="">
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                    <input type="text" class="form-control" id="zip1" placeholder="NPA">
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4 my-2">
+
+                                    <label>Etat:</label>
+
+                                </div>
+
+                                <div class="col-sm-8 my-2">
+
+                                    <input type="text" class="form-control" id="state1">
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4 my-2">
+
+                                    <label>Pays:</label>
+
+                                </div>
+
+                                <div class="col-sm-8 my-2">
+
+                                    <input type="text" class="form-control" id="country1" placeholder="">
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4 my-2">
+
+                                    <label>Date de naissance:</label>
+
+                                </div>
+
+                                <div class="col-sm-8 my-2">
+
+                                    <input type="date" class="form-control" id="dob">
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4 my-2">
+
+                                    <label>Site Web:</label>
+
+                                </div>
+
+                                <div class="col-sm-8 my-2">
+
+                                    <input type="text" class="form-control url-plus" id="Website" placeholder="www.monsiteweb.ch">
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group my-3">
+
+                                <label for="v_range" class="form-label">Taille (100-1000 px)</label>
+
+                                <input type="range" class="form-range" id="v_range" min="100" max="1000" value="200">
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4">
+
+                                    <label for="">Format</label>
+
+                                </div>
+
+                                <div class="col-sm-8">
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input v_format" type="radio" name="v_rad" id="v_rad1" checked value="png">
+
+                                        <label class="form-check-label" for="v_rad1">PNG</label>
+
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input v_format" type="radio" name="v_rad" id="v_rad2" value="svg">
+
+                                        <label class="form-check-label" for="v_rad2">SVG</label>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4">
+
+                                    <label>Couleur:</label>
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                    <input type="color" class="form-control" id="v_color">
+
+                                </div>
+
+                            </div>
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4">
+
+                                    <label for="">ECC</label>
+
+                                </div>
+
+                                <div class="col-sm-8">
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input v_ecc" type="radio" name="v_ecc" id="v_ecc1" checked value="L">
+
+                                        <label class="form-check-label" for="v_ecc1">Low</label>
+
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input v_ecc" type="radio" name="v_ecc" id="v_ecc2" value="M">
+
+                                        <label class="form-check-label" for="v_ecc2">Medium</label>
+
+                                    </div>
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input v_ecc" type="radio" name="v_ecc" id="v_ecc3" value="H">
+
+                                        <label class="form-check-label" for="v_ecc3">High</label>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group pt-4">
+
+                                <button class="btn btn-submit"><i class="fa fa-refresh pe-2"></i>Générer</button>
+
+                            </div>
+
+
+
+                        </form>
+
+                        <form action="" method="post" class="mt-3 form-box needs-validation" novalidate id="wifi_form">
+
+                            <div class="form-group row mx-0">
+
+                                <h3 class="text-dark mb-3">WIFI</h3>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4">
+
+                                    <label>Nom du réseau:</label>
+
+                                </div>
+
+                                <div class="col-sm-5 my-2">
+
+                                    <input type="text" class="form-control" id="ssid" placeholder="SSID" required>
+
+                                </div>
+
+                                <div class="col-sm-3 my-2 d-flex flex-column justify-content-center align-items-center">
+
+                                    <div class="form-check">
+
+                                        <input class="form-check-input" type="checkbox" value="" id="hidden">
+
+                                        <label class="form-check-label" for="hidden">
+
+                                          Cacher
+
+                                        </label>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4 my-2">
+
+                                    <label>Mots de passe:</label>
+
+                                </div>
+
+                                <div class="col-sm-8 my-2">
+
+                                    <input type="password" class="form-control" id="password" required>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4 my-2">
+
+                                    <label>Encryption:</label>
+
+                                </div>
+
+                                <div class="col-sm-8 my-2">
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input security" type="radio" name="inlineRadioOptions" id="None" value="None" required>
+
+                                        <label class="form-check-label" for="None">Aucune</label>
+
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input security" type="radio" name="inlineRadioOptions" id="WPA/WPA2" value="WPA" checked>
+
+                                        <label class="form-check-label" for="WPA/WPA2">WPA/WPA2</label>
+
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input security" type="radio" name="inlineRadioOptions" id="WEP" value="WEP">
+
+                                        <label class="form-check-label" for="WEP">WEP</label>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group my-3">
+
+                                <label for="w_range" class="form-label">Taille (100-1000 px)</label>
+
+                                <input type="range" class="form-range" id="w_range" min="100" value="200" max="1000">
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4">
+
+                                    <label for="">Format</label>
+
+                                </div>
+
+                                <div class="col-sm-8">
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input w_format" type="radio" name="w_rad" id="w_rad1" checked value="png">
+
+                                        <label class="form-check-label" for="w_rad1">PNG</label>
+
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input w_format" type="radio" name="w_rad" id="w_rad2" value="svg">
+
+                                        <label class="form-check-label" for="w_rad2">SVG</label>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4">
+
+                                    <label>Couleur:</label>
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                    <input type="color" class="form-control" required id="w_color">
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4">
+
+                                    <label for="">ECC</label>
+
+                                </div>
+
+                                <div class="col-sm-8">
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input w_ecc" type="radio" name="w_ecc" id="w_ecc1" checked value="L">
+
+                                        <label class="form-check-label" for="w_ecc1">Low</label>
+
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input w_ecc" type="radio" name="w_ecc" id="w_ecc2" value="M">
+
+                                        <label class="form-check-label" for="w_ecc2">Medium</label>
+
+                                    </div>
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input w_ecc" type="radio" name="w_ecc" id="w_ecc3" value="H">
+
+                                        <label class="form-check-label" for="w_ecc3">High</label>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group pt-4">
+
+                                <button class="btn btn-submit"><i class="fa fa-refresh pe-2"></i>Générer</button>
+
+                            </div>
+
+
+
+                        </form>
+
+                        <form action="" method="post" class="mt-3 form-box needs-validation" novalidate id="event_form">
+
+                            <div class="form-group row mx-0">
+
+                                <h3 class="text-dark mb-3">Événement</h3>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4 my-2">
+
+                                    <label>Titre:</label>
+
+                                </div>
+
+                                <div class="col-sm-8 my-2">
+
+                                    <input type="text" class="form-control" id="title" placeholder="Nom" required>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4 my-2">
+
+                                    <label>Quand:</label>
+
+                                </div>
+
+                                <div class="col-sm-3 my-2">
+
+                                    <input type="date" required class="form-control" id="e_date1">
+
+                                </div>
+
+                                <div class="col-sm-2 my-2 text-center d-flex flex-column justify-content-center">
+
+                                    <i class="fa fa-chevron-right fa-2x"></i>
+
+                                </div>
+
+                                <div class="col-sm-3 my-2">
+
+                                    <input type="date" required class="form-control" id="e_date2">
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group my-3">
+
+                                <label for="e_range" class="form-label">Taille (100-1000 px)</label>
+
+                                <input type="range" class="form-range" id="e_range" min="100" value="200" max="1000">
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4">
+
+                                    <label for="">Format</label>
+
+                                </div>
+
+                                <div class="col-sm-8">
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input e_format" type="radio" name="e_rad" id="e_rad1" checked value="png">
+
+                                        <label class="form-check-label" for="e_rad1">PNG</label>
+
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input e_format" type="radio" name="e_rad" id="e_rad2" value="svg">
+
+                                        <label class="form-check-label" for="e_rad2">SVG</label>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4">
+
+                                    <label>Couleur:</label>
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                    <input type="color" class="form-control" required id="e_color">
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4">
+
+                                    <label for="">ECC</label>
+
+                                </div>
+
+                                <div class="col-sm-8">
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input e_ecc" type="radio" name="e_ecc" id="e_ecc1" checked value="L">
+
+                                        <label class="form-check-label" for="e_ecc1">Low</label>
+
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input e_ecc" type="radio" name="e_ecc" id="e_ecc2" value="M">
+
+                                        <label class="form-check-label" for="e_ecc2">Medium</label>
+
+                                    </div>
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input e_ecc" type="radio" name="e_ecc" id="e_ecc3" value="H">
+
+                                        <label class="form-check-label" for="e_ecc3">High</label>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group pt-4">
+
+                                <button class="btn btn-submit"><i class="fa fa-refresh pe-2"></i>Générer</button>
+
+                            </div>
+
+
+
+                        </form>
+
+                        <form action="" method="post" class="mt-3 form-box needs-validation" novalidate id="location_form">
+
+                            <div class="form-group row mx-0">
+
+                                <h3 class="text-dark mb-3">Géolocalisation</h3>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4 my-2">
+
+                                    <label>Latitude:</label>
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                    <input type="text" class="form-control" id="l_lat" placeholder="Latitude" required>
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                    <input type="text" class="form-control" id="l_long" placeholder="Longitude" required>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group my-3">
+
+                                <label for="l_range" class="form-label">Taille (100-1000 px)</label>
+
+                                <input type="range" class="form-range" id="l_range" min="100" max="1000" value="200">
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4">
+
+                                    <label for="">Format</label>
+
+                                </div>
+
+                                <div class="col-sm-8">
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input l_format" type="radio" name="l_rad" id="l_rad1" checked value="png">
+
+                                        <label class="form-check-label" for="l_rad1">PNG</label>
+
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input l_format" type="radio" name="l_rad" id="l_rad2" value="svg">
+
+                                        <label class="form-check-label" for="l_rad2">SVG</label>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4">
+
+                                    <label>Couleur:</label>
+
+                                </div>
+
+                                <div class="col-sm-4 my-2">
+
+                                    <input type="color" class="form-control" required id="l_color">
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group row mx-0">
+
+                                <div class="col-sm-4">
+
+                                    <label for="">ECC</label>
+
+                                </div>
+
+                                <div class="col-sm-8">
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input l_ecc" type="radio" name="l_ecc" id="l_ecc1" checked value="L">
+
+                                        <label class="form-check-label" for="l_ecc1">Low</label>
+
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input l_ecc" type="radio" name="l_ecc" id="l_ecc2" value="M">
+
+                                        <label class="form-check-label" for="l_ecc2">Medium</label>
+
+                                    </div>
+                                    <div class="form-check form-check-inline">
+
+                                        <input class="form-check-input l_ecc" type="radio" name="l_ecc" id="l_ecc3" value="H">
+
+                                        <label class="form-check-label" for="l_ecc3">High</label>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group pt-4">
+
+                                <button class="btn btn-submit"><i class="fa fa-refresh pe-2"></i>Générer</button>
+
+                            </div>
+
+
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="qr_code p-5 text-center">
+
+                    <div class="result">
+
+                        <img src="qr_images/default.png" alt="" class="img-fluid w-100" id="qr_img">
+
+                        <div class="loader"></div>
+
+                    </div>
+
+                    <div class="mt-3">
+
+                        <a href="qr_images/default.png" class="btn btn-block btn-outline-danger mx-1" download="Qrcode" id="btn_download"><i class="fa fa-download"></i> Télécharger</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function accent(str) {
+
+            // var result = str.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+
+            var result = str;
+
+            return result;
+
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="main.js"></script>
+
+</body>
+
+
+
+</html>

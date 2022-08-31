@@ -1,0 +1,157 @@
+body {
+    background-image: url(Fond.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+  
+}
+
+.generator {
+    background-color: #fff;
+    box-shadow: 0 14px 16px rgb(0 0 0 / 6%);
+    border: 2px solid #797D80;
+    border-radius: 6px;
+}
+
+.qr_code {
+    
+    box-shadow: 0 14px 16px rgb(0 0 0 / 6%);
+    border: 2px solid #797D80;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+.options {
+    background-color: #fff;
+    border-radius: 0px;
+    border-bottom: 2px solid #EAEAEA;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.options:hover,
+.options.active {
+    border-radius: 4px;
+    background-color: #EAEAEA;
+}
+
+.no_border {
+    width: 100%;
+    border: 0;
+}
+
+.inp_big {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.inp_big:focus {
+    outline: 0;
+}
+
+.btn-submit {
+    text-transform: uppercase;
+    width: 100%;
+    padding: 12px 30px;
+    font-weight: 900;
+    border-radius: 30px;
+    max-width: 280px;
+    background-color: #5ab15c;
+    color: #fff;
+    display: inline-block;
+    border: 1px solid #5ab15c;
+}
+
+.btn-submit:hover {
+    color: #fff;
+    background-color: #5ab15c;
+}
+
+.row>div {
+    padding: 0 5px;
+}
+
+.form-box {
+    display: none;
+}
+
+.form-control {
+    font-weight: 600;
+}
+
+.form-group label {
+    font-weight: 600;
+}
+
+.form-box.active {
+    display: unset;
+}
+
+#e_rem_btn,
+#p_rem_btn {
+    display: none;
+}
+
+.result {
+    position: relative;
+}
+
+.result::before {
+    display: none;
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #4a4a4a73;
+}
+
+.loader {
+    display: none;
+    position: absolute;
+    left: calc(50% - 30px);
+    top: calc(50% - 30px);
+    border: 6px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 6px solid #3498db;
+    width: 60px;
+    height: 60px;
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+.result.active .loader {
+    display: unset;
+}
+
+.result.active::before {
+    display: unset;
+}
+
+
+/* Safari */
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
